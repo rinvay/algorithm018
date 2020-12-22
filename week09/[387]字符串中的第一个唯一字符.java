@@ -23,7 +23,7 @@ class Solution {
     public int firstUniqChar(String s) {
         Map<Character, Integer> position = new HashMap<Character, Integer>();
         int len = s.length();
-        //遍历字符
+        //遍历字符，重复则-1，不重复则存储位置
         for (int i = 0; i < len; ++i) {
             char ch = s.charAt(i);
             if (position.containsKey(ch)) {
@@ -33,7 +33,7 @@ class Solution {
             }
         }
         int first = len;
-        //遍历hashmap
+        //遍历hashmap，找到最小的不重复位置
         for (Map.Entry<Character, Integer> entry : position.entrySet()) {
             int pos = entry.getValue();
             if (pos != -1 && pos < first) {
